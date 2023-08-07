@@ -1,0 +1,36 @@
+<div class="gallery">
+  <form action="" [formGroup]="form">
+    <app-filter
+      [labelText]="inputLabel"
+      [placeholder]="inputPlaceholder"
+      formControlName="filter"
+    ></app-filter>
+  </form>
+
+  <div *ngIf="articleCount | async as count; else noResults">
+    <div *ngIf="filter | async" class="gallery__searchResults">
+      <h2>{{ resultsText }}{{ articleCount | async }}</h2>
+      <mat-divider></mat-divider>
+    </div>
+
+    <div class="gallery__grid-wrap">
+      <app-news-card
+        *ngFor="let article of articles | async"
+        [articleData]="article"
+      ></app-news-card>
+    </div>
+
+    <mat-paginator
+      *ngIf="count > 0"
+      class="gallery__paginator"
+      [length]="articleCount | async"
+      [pageSize]="pageSize"
+      [pageIndex]="currentPage"
+      (page)="onPageChange($event)"
+    ></mat-paginator>
+  </div>
+
+  <ng-template #noResults>
+    <h2>{{ noResultsText }}</h2>
+  </ng-template>
+</div>

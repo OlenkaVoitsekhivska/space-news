@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <div *ngIf="articleData | async as article">
+    <img [src]="article.image_url" alt="" class="background-image" />
+    <mat-card class="card">
+      <mat-card-header class="card__header">
+        <mat-card-title>{{ article.title }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ article.summary }}</p></mat-card-content
+      >
+    </mat-card>
+  </div>
+  <app-button
+    class="button"
+    [color]="buttonColor"
+    [type]="buttonType"
+    [text]="buttonText"
+    (click)="navigateToHomePage()"
+    ><app-mat-icon [icon]="arrowLeftIcon"></app-mat-icon
+  ></app-button>
+</div>

@@ -1,0 +1,19 @@
+
+.gallery{
+    padding: 50px 150px 0;
+
+    &__grid-wrap{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap:50px;
+    }
+
+    &__paginator{
+        display: flex;
+        justify-content: center;
+    }
+
+    &__searchResults{
+        margin-bottom: 24px;
+    }
+}

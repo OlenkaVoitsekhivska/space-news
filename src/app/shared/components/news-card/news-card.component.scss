@@ -1,0 +1,30 @@
+app-mat-icon {
+    display: flex;
+}
+
+.card{
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto;
+    transition: box-shadow 0.3s ease; 
+
+    &:hover{
+        cursor:pointer;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    &__content{
+        display: grid;
+        grid-template-rows: 1fr 2fr 1fr;
+        padding: 20px;
+    }
+
+    &__date{
+        display: flex;
+        align-items: center;
+
+        p{
+            margin: 0 0 0 8px;
+        }
+    }
+}

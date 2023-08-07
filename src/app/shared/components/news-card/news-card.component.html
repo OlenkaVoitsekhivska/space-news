@@ -1,0 +1,32 @@
+<mat-card class="card">
+  <img
+    mat-card-image
+    [src]="articleData.image_url"
+    alt="Photo of a Shiba Inu"
+  />
+
+  <mat-card-content class="card__content">
+    <div class="card__date">
+      <app-mat-icon [icon]="calendarIcon"></app-mat-icon>
+      <p>{{ articleData.published_at | date }}</p>
+    </div>
+
+    <mat-card-title
+      [innerHTML]="articleData.title | highlight : filter"
+    ></mat-card-title>
+    <p
+      [innerHTML]="articleData.summary | highlight : filter"
+      [appClipText]="100"
+    ></p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <app-button
+      [color]="buttonColor"
+      [type]="buttonType"
+      [text]="buttonText"
+      (click)="navigateToDetailsPage()"
+      ><app-mat-icon [icon]="arrowRightIcon"></app-mat-icon
+    ></app-button>
+  </mat-card-actions>
+</mat-card>
